@@ -168,7 +168,10 @@ const MONTAGGIO = `<svg viewBox="0 0 320 190" role="img" aria-label="Vista di la
 <text x="6" y="74">sensore</text><text x="6" y="88">nel telaio</text>
 <text x="155" y="50" text-anchor="middle">barra distanziale</text>
 <text x="214" y="180" text-anchor="middle">fascetta inox</text><text x="96" y="180" text-anchor="middle">fascetta inox</text></g>
-<g stroke="var(--muted)" stroke-width="1"><path d="M96 160v8M214 160v8M155 55v20"/></g></svg>`;
+<g stroke="var(--muted)" stroke-width="1"><path d="M96 160v8M214 160v8M155 55v20"/></g>
+<g stroke="var(--logo-ink)" stroke-width="1.2" fill="none"><path d="M70 103h52M70 99v8M122 99v8"/></g>
+<g stroke="var(--ink)" stroke-width="1.2" fill="none"><path d="M248 64v30M244 64h8M244 94h8"/></g>
+<g font-family="Barlow, Arial, sans-serif" font-size="13" font-weight="600"><text x="96" y="118" text-anchor="middle" fill="var(--logo-ink)">L</text><text x="256" y="84" fill="var(--ink)">H</text></g></svg>`;
 
 const COVER = `<section class="cover">
 <h1>Sopralluogo guidato per misuratori di portata clamp-on</h1>
@@ -232,7 +235,9 @@ const PUNTO = [
   { id: "coib", cat: "Coibentazione", img: "coibentazione", say: () => ["Il tubo è <b>coibentato</b>? Per montare i sensori va aperto un tratto."], in: CH({ v: "no", l: "No, è nudo" }, { v: "facile", l: "Sì, si apre facile" }, { v: "difficile", l: "Sì, difficile da aprire" }) },
   { id: "v2", cat: "Video 2 di 3 · il giro attorno al tubo", svgs: [MONTAGGIO, SEZIONE],
     prima: () => ["Fai un giro attorno al tubo nel punto scelto. Ogni coppia di sensori sta in due telai, uniti da una barra e fissati con fascette inox, sui <b>fianchi alti</b> del tubo."],
-    say: () => ["Guarda se lì trovi staffe, parete, altri tubi o la saldatura lunga del tubo, così capiamo se c'è spazio.",
+    say: () => [`Ingombro di ogni sensore, dal manuale Siemens:<table><tr><td></td><td class="n">L</td><td class="n">H</td><td class="n">larghezza</td></tr><tr><td>taglia C</td><td class="n">127 mm</td><td class="n">56 mm</td><td class="n">33 mm</td></tr><tr><td>taglia D</td><td class="n">191 mm</td><td class="n">84 mm</td><td class="n">51 mm</td></tr></table>La taglia dipende dallo spessore del tubo. La distanza fra i due sensori la calcola il trasmettitore.`,
+      `<figure class="foto"><img src="staffe.png" alt="Disegno Siemens dei telai di montaggio" onerror="this.parentNode.parentNode.remove()"></figure>`,
+      "Guarda se lì trovi staffe, parete, altri tubi o la saldatura lunga del tubo, così capiamo se c'è spazio.",
       `<a class="doc" href="https://cache.industry.siemens.com/dl/files/583/109749583/att_927488/v1/FSS200_IM_en_en-US.pdf#page=32" target="_blank" rel="noopener">Apri i disegni di montaggio Siemens<small>Manuale dei sensori FSS200, pagine 30-32 (PDF in inglese)</small></a>`],
     in: CH({ v: "libero", l: "Fatto, spazio libero" }, { v: "ingombro", l: "Fatto, c'è un ingombro" }, { v: "dopo", l: "Lo faccio dopo", c: "ghost" }) },
   { id: "trasm", cat: "Trasmettitore", say: () => ["Quanti metri hai dal punto scelto alla <b>parete del trasmettitore</b>?"], in: NUM("m") },
