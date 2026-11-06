@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0F2B46">
 <meta name="description" content="Guida a passi per scegliere in centrale i punti di misura dei misuratori di portata clamp-on SITRANS FS230.">
 <meta property="og:type" content="website">
@@ -76,7 +77,8 @@ main .wrap { display: flex; flex-direction: column; gap: 10px; padding-block: 14
 .q table { border-collapse: collapse; margin-top: 4px; font-variant-numeric: tabular-nums; font-size: 15px; }
 .q td { padding: 2px 14px 2px 0; } .q td.n { text-align: right; }
 .q a { color: var(--accent); }
-.q .nota { font-size: 14px; color: var(--muted); }
+.q a.doc { display: block; border: 1.5px solid var(--accent); border-radius: 10px; padding: 10px 12px; font-weight: 600; text-decoration: none; }
+.q a.doc small { display: block; font-weight: 400; font-size: 13.5px; color: var(--muted); }
 .a { align-self: flex-end; max-width: 85%; background: var(--primary); color: var(--primary-ink); font-weight: 600; padding: 8px 14px; border-radius: 8px; overflow-wrap: anywhere; }
 .a.skip { background: var(--soft); color: var(--ink); font-weight: 400; }
 .fb { border-radius: 10px; padding: 10px 14px; }
@@ -231,7 +233,7 @@ const PUNTO = [
   { id: "v2", cat: "Video 2 di 3 · il giro attorno al tubo", svgs: [MONTAGGIO, SEZIONE],
     prima: () => ["Fai un giro attorno al tubo nel punto scelto. Ogni coppia di sensori sta in due telai, uniti da una barra e fissati con fascette inox, sui <b>fianchi alti</b> del tubo."],
     say: () => ["Guarda se lì trovi staffe, parete, altri tubi o la saldatura lunga del tubo, così capiamo se c'è spazio.",
-      `<span class="nota">I disegni originali sono nel <a href="https://cache.industry.siemens.com/dl/files/583/109749583/att_927488/v1/FSS200_IM_en_en-US.pdf#page=32" target="_blank" rel="noopener">manuale Siemens dei sensori FSS200</a>, pagine 30-32 (in inglese).</span>`],
+      `<a class="doc" href="https://cache.industry.siemens.com/dl/files/583/109749583/att_927488/v1/FSS200_IM_en_en-US.pdf#page=32" target="_blank" rel="noopener">Apri i disegni di montaggio Siemens<small>Manuale dei sensori FSS200, pagine 30-32 (PDF in inglese)</small></a>`],
     in: CH({ v: "libero", l: "Fatto, spazio libero" }, { v: "ingombro", l: "Fatto, c'è un ingombro" }, { v: "dopo", l: "Lo faccio dopo", c: "ghost" }) },
   { id: "trasm", cat: "Trasmettitore", say: () => ["Quanti metri hai dal punto scelto alla <b>parete del trasmettitore</b>?"], in: NUM("m") },
   { info: true, when: p => typeof get(`p${p}.trasm`) === "number", say: p => { const t = get(`p${p}.trasm`);
